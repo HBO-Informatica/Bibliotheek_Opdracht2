@@ -7,6 +7,8 @@ using System.Windows.Controls;
 using Syntheseopdracht2.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 namespace Syntheseopdracht2.UI
 {
@@ -42,7 +44,7 @@ namespace Syntheseopdracht2.UI
         }
 
 
-        private void btnBoekToevoegen_Click(object sender, RoutedEventArgs e)
+        private async void btnBoekToevoegen_Click(object sender, RoutedEventArgs e)
         {
             if (IsGeldigBoek())
             {
@@ -54,8 +56,15 @@ namespace Syntheseopdracht2.UI
                     Genres = new List<Genre>()
                 };
 
-            }
+                boek.Genres = NeemGeselecteerdeGenres();
 
+               await _boekLogica.BewaarBoek(boek);
+               await LijstenUpdaten();
+            }
+            else
+            {
+                MessageBox.Show("Controleer of je alle velden correct hebt ingevuld.", "Fout tijdens bewaren van het boek", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
 
         }
@@ -113,5 +122,9 @@ namespace Syntheseopdracht2.UI
 
         }
 
+        public List<Genre> NeemGeselecteerdeGenres()
+        {
+            return lsbGenre.SelectedItems.Cast<Genre>().ToList();
+        }
     }
 }
