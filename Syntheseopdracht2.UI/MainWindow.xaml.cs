@@ -69,8 +69,34 @@ namespace Syntheseopdracht2.UI
 
         }
 
-        private void btnBoekBewerken_Click(object sender, RoutedEventArgs e)
+        private async void btnBoekBewerken_Click(object sender, RoutedEventArgs e)
         {
+
+            var geselecteerdBoek = lsbBoeken.SelectedItem as Boek;
+
+            if (geselecteerdBoek!= null)
+            {
+                geselecteerdBoek.AantalPaginas = Convert.ToInt32(txtAantalPaginas.Text);
+                geselecteerdBoek.Auteur = txtAuteur.Text;
+                geselecteerdBoek.Titel = txtTitel.Text;
+                geselecteerdBoek.Genres = NeemGeselecteerdeGenres();
+            }
+
+
+
+            //if (true)
+            //{
+            //    await _boekLogica.WijzigBoek(geselecteerdBoek);
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Het lijkt erop dat een andere collega het boek, dat u wenste te bewerken, heeft verwijderd.", "Fout tijdens bewerken van het boek.", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+
+
+
+            await LijstenUpdaten();
 
         }
 
