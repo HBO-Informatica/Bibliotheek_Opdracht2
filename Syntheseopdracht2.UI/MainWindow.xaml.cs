@@ -74,9 +74,14 @@ namespace Syntheseopdracht2.UI
 
         }
 
-        private void btnBoekVerwijderen_Click(object sender, RoutedEventArgs e)
+        private async void btnBoekVerwijderen_Click(object sender, RoutedEventArgs e)
         {
-
+            var geselecteerdBoek = lsbBoeken.SelectedItem as Boek;
+            if (geselecteerdBoek != null)
+            {
+                await _boekLogica.VerwijderBoek(geselecteerdBoek);
+                await LijstenUpdaten();
+            }
         }
 
         private void lsbBoeken_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
