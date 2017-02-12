@@ -38,5 +38,7 @@ namespace Syntheseopdracht2.BL
             _database.Boeken.Remove(boek);
             return _database.SaveChangesAsync();
         }
+
+
     }
 }
