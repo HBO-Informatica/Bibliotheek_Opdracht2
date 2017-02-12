@@ -86,6 +86,27 @@ namespace Syntheseopdracht2.UI
 
         private void lsbBoeken_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            var geselecteerdBoek = lsbBoeken.SelectedItem as Boek;
+
+            if (geselecteerdBoek != null)
+            {
+                txtAantalPaginas.Text = geselecteerdBoek.AantalPaginas.ToString();
+                txtAuteur.Text = geselecteerdBoek.Auteur;
+                txtTitel.Text = geselecteerdBoek.Titel;
+
+                lsbGenre.SelectedItems.Clear();
+
+                foreach (var genre in geselecteerdBoek.Genres)
+                {
+                    foreach (var item in lsbGenre.Items.Cast<Genre>())
+                    {
+                        if (item.Id == genre.Id)
+                        {
+                            lsbGenre.SelectedItems.Add(item);
+                        }
+                    }
+                }
+            }
 
         }
 
