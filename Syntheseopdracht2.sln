@@ -5,19 +5,13 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syntheseopdracht2.Model", "Syntheseopdracht2.Model\Syntheseopdracht2.Model.csproj", "{73CEB0BA-EB42-49A1-93D6-75F1BE776A9D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Model", "4.Model", "{298B63B3-111B-4C68-9425-DE73F9660B3E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syntheseopdracht2.DA", "Syntheseopdracht2.DA\Syntheseopdracht2.DA.csproj", "{551A1C0A-EA10-4533-80AE-4FF33871E873}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syntheseopdracht2.BL", "Syntheseopdracht2.BL\Syntheseopdracht2.BL.csproj", "{4E29F3B3-AAB0-43D6-BA0B-171EA1616EB8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.DA", "3.DA", "{7C006534-AEC7-4D49-96F4-D33664E94299}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.BL", "2.BL", "{DF4B1A95-EB59-46CC-A614-EEE941C1BAE2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.UI", "1.UI", "{397A8F9D-4DAF-49B1-A41A-375C25BFEF80}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syntheseopdracht2.UI", "Syntheseopdracht2.UI\Syntheseopdracht2.UI.csproj", "{D164F662-BB56-4D23-9943-33FA3EF7D9C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyntheseOpdracht2.MVC", "SyntheseOpdracht2.MVC\SyntheseOpdracht2.MVC.csproj", "{8C14C0A4-328A-40C0-9FE8-1B3176BB2DE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,14 +35,12 @@ Global
 		{D164F662-BB56-4D23-9943-33FA3EF7D9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D164F662-BB56-4D23-9943-33FA3EF7D9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D164F662-BB56-4D23-9943-33FA3EF7D9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C14C0A4-328A-40C0-9FE8-1B3176BB2DE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C14C0A4-328A-40C0-9FE8-1B3176BB2DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C14C0A4-328A-40C0-9FE8-1B3176BB2DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C14C0A4-328A-40C0-9FE8-1B3176BB2DE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{73CEB0BA-EB42-49A1-93D6-75F1BE776A9D} = {298B63B3-111B-4C68-9425-DE73F9660B3E}
-		{551A1C0A-EA10-4533-80AE-4FF33871E873} = {7C006534-AEC7-4D49-96F4-D33664E94299}
-		{4E29F3B3-AAB0-43D6-BA0B-171EA1616EB8} = {DF4B1A95-EB59-46CC-A614-EEE941C1BAE2}
-		{D164F662-BB56-4D23-9943-33FA3EF7D9C9} = {397A8F9D-4DAF-49B1-A41A-375C25BFEF80}
 	EndGlobalSection
 EndGlobal
