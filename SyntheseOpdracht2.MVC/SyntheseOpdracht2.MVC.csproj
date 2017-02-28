@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -150,7 +158,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BoekController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,11 +207,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Genre\Index.cshtml" />
+    <Content Include="Views\Genre\Toevoegen.cshtml" />
+    <Content Include="Views\Genre\_GenreDetails.cshtml" />
+    <Content Include="Views\Genre\Bewerken.cshtml" />
+    <Content Include="Views\Boek\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Boek\" />
-    <Folder Include="Views\Genre\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -215,6 +225,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Syntheseopdracht2.BL\Syntheseopdracht2.BL.csproj">
+      <Project>{4E29F3B3-AAB0-43D6-BA0B-171EA1616EB8}</Project>
+      <Name>Syntheseopdracht2.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Syntheseopdracht2.DA\Syntheseopdracht2.DA.csproj">
+      <Project>{551A1C0A-EA10-4533-80AE-4FF33871E873}</Project>
+      <Name>Syntheseopdracht2.DA</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Syntheseopdracht2.Model\Syntheseopdracht2.Model.csproj">
       <Project>{73CEB0BA-EB42-49A1-93D6-75F1BE776A9D}</Project>
       <Name>Syntheseopdracht2.Model</Name>

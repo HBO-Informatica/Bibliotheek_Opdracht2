@@ -6,7 +6,8 @@ namespace Syntheseopdracht2.DA
 {
     public class BoekenDatabase : DbContext, IBoekenDatabase
     {
-        private static readonly String _connectionString = "ConfigGD";
+        private static readonly String _connectionString = "ConfigDB";
+        //ConfigDB
 
         public DbSet<Boek> Boeken { get; set; }
         public DbSet<Genre> Genres { get; set; }
