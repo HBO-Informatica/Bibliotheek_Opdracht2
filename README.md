@@ -1,2 +1,2 @@
 # Bibliotheek_Opdracht2
-Multitier with SOAP WCF and ASP.NET WebApi
+Multitier with ASP.NET MVC
