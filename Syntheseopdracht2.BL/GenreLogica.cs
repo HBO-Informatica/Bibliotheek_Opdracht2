@@ -30,7 +30,9 @@ namespace Syntheseopdracht2.BL
 
         public Task<Genre> GeefGenre(Int32 id)
         {
+            // meerdere genres
             return _database.Genres.SingleOrDefaultAsync(x => x.Id == id);
+            
         }
 
         public async Task GenreWijzigen(Genre genre)

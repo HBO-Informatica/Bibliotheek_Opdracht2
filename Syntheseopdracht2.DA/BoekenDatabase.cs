@@ -6,7 +6,7 @@ namespace Syntheseopdracht2.DA
 {
     public class BoekenDatabase : DbContext, IBoekenDatabase
     {
-        private static readonly String _connectionString = "ConfigDB";
+        private static readonly String _connectionString = "Server=programmeren3.database.windows.net,1433;Database=Opdracht2_Nadia;User ID=programmeren13822@programmeren3; Password=Programmeren3;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
         //ConfigDB
 
         public DbSet<Boek> Boeken { get; set; }
@@ -17,6 +17,7 @@ namespace Syntheseopdracht2.DA
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Boek>().ToTable("Boeken");
             modelBuilder.Entity<Genre>().ToTable("Genres");
             base.OnModelCreating(modelBuilder);

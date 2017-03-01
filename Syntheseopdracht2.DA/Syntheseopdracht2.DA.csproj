@@ -67,6 +67,11 @@
   <ItemGroup>
     <Compile Include="BoekenDatabase.cs" />
     <Compile Include="IBoekenDatabase.cs" />
+    <Compile Include="Migrations\201703011744103_InitialCreate.cs" />
+    <Compile Include="Migrations\201703011744103_InitialCreate.Designer.cs">
+      <DependentUpon>201703011744103_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unity\UnityDataAccessConfiguratie.cs" />
   </ItemGroup>
@@ -79,6 +84,11 @@
       <Project>{73CEB0BA-EB42-49A1-93D6-75F1BE776A9D}</Project>
       <Name>Syntheseopdracht2.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703011744103_InitialCreate.resx">
+      <DependentUpon>201703011744103_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

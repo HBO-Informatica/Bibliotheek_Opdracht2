@@ -1,0 +1,46 @@
+﻿@model SyntheseOpdracht2.MVC.Models.BoekDetailVM
+
+@using (Html.BeginForm())
+{
+
+    <div class="row row-margin">
+        @Html.LabelFor(x => x.Titel)
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-chevron-right"></span></span>
+            @Html.TextBoxFor(x => x.Titel, new { Class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row row-margin">
+        @Html.LabelFor(x => x.Auteur)
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-chevron-right"></span></span>
+            @Html.TextBoxFor(x => x.Auteur, new { Class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row row-margin">
+        @Html.LabelFor(x => x.AantalPaginas)
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-chevron-right"></span></span>
+            @Html.TextBoxFor(x => x.AantalPaginas, new { Class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row row-margin">
+        @Html.LabelFor(x => x.Genres)
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-chevron-right"></span></span>
+            @Html.ListBoxFor(x => x.Genres, new MultiSelectList(Model.Genres) )
+            
+        </div>
+    </div>
+
+    <div class="row row-margin">
+        <button type="submit" class="btn btn-success" aria-label="Left Align">
+            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+            Opslaan
+        </button>
+    </div>
+
+}

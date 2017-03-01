@@ -212,6 +212,9 @@
     <Content Include="Views\Genre\_GenreDetails.cshtml" />
     <Content Include="Views\Genre\Bewerken.cshtml" />
     <Content Include="Views\Boek\Index.cshtml" />
+    <Content Include="Views\Boek\Toevoegen.cshtml" />
+    <Content Include="Views\Boek\Bewerken.cshtml" />
+    <Content Include="Views\Boek\_BoekDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

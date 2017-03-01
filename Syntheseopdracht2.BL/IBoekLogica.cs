@@ -1,4 +1,5 @@
 ﻿using Syntheseopdracht2.Model;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace Syntheseopdracht2.BL
         
         Task WijzigBoek(Boek boek);
 
-        Task VerwijderBoek(Boek boek);
+        Task VerwijderBoek(Int32 code);
 
         //Task NeemGeselecteerdBoek(Boek boek);
 

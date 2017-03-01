@@ -3,6 +3,7 @@ using Syntheseopdracht2.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Syntheseopdracht2.BL
@@ -33,12 +34,22 @@ namespace Syntheseopdracht2.BL
             return _database.SaveChangesAsync();
         }
 
-        public Task VerwijderBoek(Boek boek)
+        public Task VerwijderBoek(Int32 code)
         {
-            _database.Boeken.Remove(boek);
+            var huidigBoek = _database.Boeken.SingleOrDefault(x => x.Id == code);
+
+            if (huidigBoek != null)
+            {
+                _database.Boeken.Remove(huidigBoek);
+            }
+
             return _database.SaveChangesAsync();
         }
 
-
+       
+        public Task<Boek> NeemBoek(Int32 code)
+        {
+            return _database.Boeken.SingleOrDefaultAsync(x => x.Id == code);
+        }
     }
 }
