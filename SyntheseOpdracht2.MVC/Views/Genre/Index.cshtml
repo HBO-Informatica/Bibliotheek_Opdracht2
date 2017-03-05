@@ -22,13 +22,13 @@
                 <td>@genre.Id</td>
                 <td>@genre.Omschrijving</td>
                 <td>
-                    @Html.ActionLink("Verwijderen", "Verwijderen", "Genres", new { code = genre.Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Verwijderen", "Verwijderen", "Genre", new { code = genre.Id }, new { @class = "btn btn-danger" })
                     &nbsp;
-                    @Html.ActionLink("Bewerken", "Bewerken", "Genres", new { code = genre.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Bewerken", "Bewerken", "Genre", new { code = genre.Id }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-@Html.ActionLink("Toevoegen", "Toevoegen", "Genres", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Toevoegen", "Toevoegen", "Genre", null, new { @class = "btn btn-primary" })

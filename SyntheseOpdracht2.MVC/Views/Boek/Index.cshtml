@@ -29,7 +29,7 @@
             <td>@boek.Titel</td>
             <td>@boek.Auteur</td>
             <td>@boek.AantalPaginas</td>
-            <td>@boek.Genres</td>
+            <td>@String.Join(", ",boek.Genres.Select(g=> g.Omschrijving))</td>
 
             <td>
                 @Html.ActionLink("Verwijderen", "Verwijderen", "Boek", new { code = boek.Id }, new { @class = "btn btn-danger" })

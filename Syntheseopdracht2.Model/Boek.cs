@@ -11,9 +11,5 @@ namespace Syntheseopdracht2.Model
         public Int32 AantalPaginas { get; set; }
         public virtual ICollection<Genre> Genres { get; set; }
 
-        public override String ToString()
-        {
-            return $"[{Id}] {Titel}, {Auteur} ({AantalPaginas} pagina's)";
-        }
     }
 }

@@ -9,7 +9,7 @@ namespace Syntheseopdracht2.Model
         public String Omschrijving { get; set; }
         public virtual ICollection<Boek> Boeken { get; set; }
 
-        public override String ToString()
+        public override string ToString()
         {
             return $"{Omschrijving}";
         }

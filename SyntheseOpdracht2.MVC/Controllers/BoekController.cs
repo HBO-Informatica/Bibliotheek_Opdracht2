@@ -37,7 +37,7 @@ namespace SyntheseOpdracht2.MVC.Controllers
              //TO DO  Genres = await _genreLogica.GeefGenre(vm.Id)
             };
 
-            await _boekLogica.BewaarBoek(nieuwBoek);
+            await _boekLogica.BewaarBoek(nieuwBoek.Id);
             return RedirectToAction("Index");
         }
 
@@ -63,7 +63,7 @@ namespace SyntheseOpdracht2.MVC.Controllers
             boek.Auteur = vm.Auteur;
             boek.AantalPaginas = vm.AantalPaginas;
             // TO DO  boek.Genres = await _genreLogica.GeefGenre(vm.GenreId);
-            await _boekLogica.WijzigBoek(boek);
+            await _boekLogica.WijzigBoek(boek.Id);
             return RedirectToAction("Index");
         }
 

@@ -23,15 +23,26 @@ namespace Syntheseopdracht2.BL
             return _database.Boeken.ToListAsync();
         }
 
-        public Task BewaarBoek(Boek boek)
-        {
-            _database.Boeken.Add(boek);
+        public Task BewaarBoek(Int32 code)
+                    {
+
+            var huidigBoek = _database.Boeken.SingleOrDefault(x => x.Id == code);
+
+            if (huidigBoek != null)
+            {
+                _database.Boeken.Add(huidigBoek);
+                
+            }
             return _database.SaveChangesAsync();
         }
 
-        public Task WijzigBoek(Boek boek)
+        public Task WijzigBoek(Int32 code)
         {
-            return _database.SaveChangesAsync();
+            var huidigBoek = _database.Boeken.SingleOrDefault(x => x.Id == code);
+
+         
+                return _database.SaveChangesAsync();
+            
         }
 
         public Task VerwijderBoek(Int32 code)
