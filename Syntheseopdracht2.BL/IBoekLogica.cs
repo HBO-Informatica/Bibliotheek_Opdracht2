@@ -10,7 +10,8 @@ namespace Syntheseopdracht2.BL
         Task<List<Boek>> NeemAlleBoeken();
 
         Task BewaarBoek(Int32 code);
-        
+        Task BewaarBoek(Boek boek);
+
         Task WijzigBoek(Int32 code);
 
         Task VerwijderBoek(Int32 code);

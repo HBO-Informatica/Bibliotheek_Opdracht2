@@ -5,14 +5,24 @@ using SyntheseOpdracht2.MVC.Models;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace SyntheseOpdracht2.MVC.Controllers
 {
     public class BoekController : Controller
     {
         //TO DO Unity
-        private readonly GenreLogica _genreLogica = new GenreLogica(new BoekenDatabase());
-        private readonly BoekLogica _boekLogica = new BoekLogica(new BoekenDatabase());
+        private readonly BoekenDatabase _boekenDatabase = new BoekenDatabase();
+
+        private readonly GenreLogica _genreLogica;
+        private readonly BoekLogica _boekLogica;
+
+        public BoekController()
+        {
+            _genreLogica = new GenreLogica(_boekenDatabase);
+            _boekLogica = new BoekLogica(_boekenDatabase);
+        }
 
         public async Task<ActionResult> Index()
         {
@@ -23,7 +33,12 @@ namespace SyntheseOpdracht2.MVC.Controllers
         public async Task<ActionResult> Toevoegen()
         {
             var genres = await _genreLogica.NeemAlleGenres();
-            return View(new BoekDetailVM { Genres = genres });
+
+            return View(new BoekDetailVM
+            {
+                Genres = new MultiSelectList(genres, "Id", "Omschrijving"),
+                GenreIds = genres.Select(g => g.Id).Take(1).ToList()
+            });
         }
 
         [HttpPost]
@@ -34,10 +49,16 @@ namespace SyntheseOpdracht2.MVC.Controllers
                 Titel = vm.Titel,
                 Auteur = vm.Auteur,
                 AantalPaginas = vm.AantalPaginas,
-             //TO DO  Genres = await _genreLogica.GeefGenre(vm.Id)
+                Genres = new List<Genre>()
             };
 
-            await _boekLogica.BewaarBoek(nieuwBoek.Id);
+            foreach (var genreId in vm.GenreIds)
+            {
+                nieuwBoek.Genres.Add(await _genreLogica.GeefGenre(genreId));
+            }
+
+            await _boekLogica.BewaarBoek(nieuwBoek);
+
             return RedirectToAction("Index");
         }
 

@@ -1,7 +1,7 @@
-﻿using Syntheseopdracht2.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Web.Mvc;
 
 namespace SyntheseOpdracht2.MVC.Models
 {
@@ -15,8 +15,8 @@ namespace SyntheseOpdracht2.MVC.Models
         public Int32 AantalPaginas { get; set; }
 
         [DisplayName("Genres")]
-        public Int32 GenreId { get; set; }
-        public List<Genre> Genres { get; set; }
+        public MultiSelectList Genres { get; set; }
 
+        public List<Int32> GenreIds { get; set; }
     }
 }
