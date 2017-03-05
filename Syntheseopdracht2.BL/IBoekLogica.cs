@@ -12,7 +12,7 @@ namespace Syntheseopdracht2.BL
         Task BewaarBoek(Int32 code);
         Task BewaarBoek(Boek boek);
 
-        Task WijzigBoek(Int32 code);
+        Task WijzigBoek(Boek boek);
 
         Task VerwijderBoek(Int32 code);
 

@@ -1,4 +1,5 @@
-﻿
+﻿@model SyntheseOpdracht2.MVC.Models.BoekDetailVM
+
 @{
     ViewBag.Title = "Bewerken";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +7,4 @@
 
 <h2>Bewerken</h2>
 
+@Html.Partial("_BoekDetails", Model)

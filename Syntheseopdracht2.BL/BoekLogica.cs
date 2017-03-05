@@ -43,11 +43,8 @@ namespace Syntheseopdracht2.BL
         }
 
 
-        public Task WijzigBoek(Int32 code)
+        public Task WijzigBoek(Boek boek)
         {
-            var huidigBoek = _database.Boeken.SingleOrDefault(x => x.Id == code);
-
-         
                 return _database.SaveChangesAsync();
             
         }

@@ -27,7 +27,7 @@ namespace SyntheseOpdracht2.MVC.Controllers
         public async Task<ActionResult> Index()
         {
             var boeken = await _boekLogica.NeemAlleBoeken();
-            return View(new BoekLijstVM { Boeken=boeken });
+            return View(new BoekLijstVM { Boeken = boeken });
         }
 
         public async Task<ActionResult> Toevoegen()
@@ -71,7 +71,11 @@ namespace SyntheseOpdracht2.MVC.Controllers
                 Titel = boek.Titel,
                 Auteur = boek.Auteur,
                 AantalPaginas = boek.AantalPaginas,
-                //TO DO   Genres = await _genreLogica.GeefGenre(vm.GenreId)
+
+                Genres = new MultiSelectList(genres, "Id", "Omschrijving"),
+                GenreIds = boek.Genres.Select(g => g.Id).ToList()
+
+
             };
             return View(vm);
         }
@@ -83,8 +87,15 @@ namespace SyntheseOpdracht2.MVC.Controllers
             boek.Titel = vm.Titel;
             boek.Auteur = vm.Auteur;
             boek.AantalPaginas = vm.AantalPaginas;
-            // TO DO  boek.Genres = await _genreLogica.GeefGenre(vm.GenreId);
-            await _boekLogica.WijzigBoek(boek.Id);
+            boek.Genres = new List<Genre>();
+            await _boekLogica.WijzigBoek(boek);
+
+            foreach (var genreId in vm.GenreIds)
+            {
+                boek.Genres.Add(await _genreLogica.GeefGenre(genreId));
+            }
+
+            await _boekLogica.WijzigBoek(boek);
             return RedirectToAction("Index");
         }
 
