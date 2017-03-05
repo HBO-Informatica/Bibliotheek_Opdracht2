@@ -10,35 +10,37 @@
 <h2>Mijn boeken</h2>
 
 <table class="table table-striped table-hover">
-<thead>
-    <tr>
-        <th>Code</th>
-        <th>Titel</th>
-        <th>Auteur</th>
-        <th>Aantal pagina's</th>
-        <th>Genres</th>
-        <th></th>
-        <th></th>
-    </tr>
-</thead>
-<tbody>
-    @foreach (var boek in Model.Boeken)
-    {
+    <thead>
         <tr>
-            <td>@boek.Id</td>
-            <td>@boek.Titel</td>
-            <td>@boek.Auteur</td>
-            <td>@boek.AantalPaginas</td>
-            <td>@String.Join(", ",boek.Genres.Select(g=> g.Omschrijving))</td>
-
-            <td>
-                @Html.ActionLink("Verwijderen", "Verwijderen", "Boek", new { code = boek.Id }, new { @class = "btn btn-danger" })
-                &nbsp;
-                @Html.ActionLink("Bewerken", "Bewerken", "Boek", new { code = boek.Id }, new { @class = "btn btn-primary" })
-            </td>
+            <th>Code</th>
+            <th>Titel</th>
+            <th>Auteur</th>
+            <th>Aantal pagina's</th>
+            <th>Genres</th>
+            <th></th>
+            <th></th>
         </tr>
+    </thead>
+    <tbody>
+        @foreach (var boek in Model.Boeken)
+        {
+            <tr>
+                <td>@boek.Id</td>
+                <td>@boek.Titel</td>
+                <td>@boek.Auteur</td>
+                <td>@boek.AantalPaginas</td>
+                <td>@String.Join(", ", boek.Genres.Select(g => g.Omschrijving))</td>
+
+                <td>
+                    @Html.ActionLink(" ", "Verwijderen", "Boek", new { code = boek.Id }, new { @class = "glyphicon glyphicon-trash" })
+                  
+            &nbsp;
+                    @Html.ActionLink(" ", "Bewerken", "Boek", new { code = boek.Id
+                    }, new { @class = "glyphicon glyphicon-pencil" })
+                </td>
+            </tr>
     }
-</tbody>
+    </tbody>
 </table>
 
 @Html.ActionLink("Toevoegen", "Toevoegen", "Boek", null, new { @class = "btn btn-primary" })

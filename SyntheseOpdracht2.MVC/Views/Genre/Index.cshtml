@@ -22,9 +22,9 @@
                 <td>@genre.Id</td>
                 <td>@genre.Omschrijving</td>
                 <td>
-                    @Html.ActionLink("Verwijderen", "Verwijderen", "Genre", new { code = genre.Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink(" ", "Verwijderen", "Genre", new { code = genre.Id }, new { @class = "glyphicon glyphicon-trash" })
                     &nbsp;
-                    @Html.ActionLink("Bewerken", "Bewerken", "Genre", new { code = genre.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink(" ", "Bewerken", "Genre", new { code = genre.Id }, new { @class = "glyphicon glyphicon-pencil" })
                 </td>
             </tr>
         }

@@ -20,7 +20,7 @@
     </div>
 
     <div class="row row-margin">
-        @Html.LabelFor(x => x.AantalPaginas, "Aantal Pagina's")
+        @Html.LabelFor(x => x.AantalPaginas)
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-chevron-right"></span></span>
             @Html.TextBoxFor(x => x.AantalPaginas, new { Class = "form-control" })
@@ -35,6 +35,8 @@
             
         </div>
     </div>
+
+    <p></p>
 
     <div class="row row-margin">
         <button type="submit" class="btn btn-success" aria-label="Left Align">
