@@ -12,9 +12,8 @@ namespace Syntheseopdracht2.BL
         Task BewaarBoek(Int32 code);
         Task BewaarBoek(Boek boek);
 
-        Task WijzigBoek(Boek boek);
+        Task WijzigBoek(Boek boek, List<int> genreIds = null);
 
         Task VerwijderBoek(Int32 code);
-
     }
 }

@@ -87,15 +87,8 @@ namespace SyntheseOpdracht2.MVC.Controllers
             boek.Titel = vm.Titel;
             boek.Auteur = vm.Auteur;
             boek.AantalPaginas = vm.AantalPaginas;
-            boek.Genres = new List<Genre>();
-            await _boekLogica.WijzigBoek(boek);
 
-            foreach (var genreId in vm.GenreIds)
-            {
-                boek.Genres.Add(await _genreLogica.GeefGenre(genreId));
-            }
-
-            await _boekLogica.WijzigBoek(boek);
+            await _boekLogica.WijzigBoek(boek, vm.GenreIds);
             return RedirectToAction("Index");
         }
 
