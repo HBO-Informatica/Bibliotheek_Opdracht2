@@ -43,7 +43,7 @@ namespace Syntheseopdracht2.BL
         }
 
 
-        public Task WijzigBoek(Boek boek, List<int> genreIds = null)
+        public async Task WijzigBoek(Boek boek, List<int> genreIds = null)
         {
             genreIds = genreIds ?? new List<int>();
 
@@ -51,9 +51,9 @@ namespace Syntheseopdracht2.BL
             boek.Genres = new List<Genre>();
 
             // boek referenties weghalen uit "genre" objecten
-            var previousGenres = _database.Genres
+            var previousGenres = await _database.Genres
                 .Where(g => g.Boeken.Any(b => b.Id == boek.Id))
-                .ToListAsync().GetAwaiter().GetResult();
+                .ToListAsync();
             foreach (var previousGenre in previousGenres)
             {
                 previousGenre.Boeken.Remove(boek);
@@ -67,8 +67,8 @@ namespace Syntheseopdracht2.BL
             }
 
             // bewaren
-            return _database.SaveChangesAsync();
-
+            await _database.SaveChangesAsync();
+            return;
         }
 
         public Task VerwijderBoek(Int32 code)

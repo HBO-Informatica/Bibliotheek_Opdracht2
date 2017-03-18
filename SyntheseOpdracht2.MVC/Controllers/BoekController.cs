@@ -84,6 +84,8 @@ namespace SyntheseOpdracht2.MVC.Controllers
         public async Task<ActionResult> Bewerken(Int32 code, BoekDetailVM vm)
         {
             var boek = await _boekLogica.NeemBoek(code);
+            if (boek == null) return RedirectToAction("Index");
+
             boek.Titel = vm.Titel;
             boek.Auteur = vm.Auteur;
             boek.AantalPaginas = vm.AantalPaginas;
