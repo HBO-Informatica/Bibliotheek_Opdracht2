@@ -13,15 +13,15 @@ namespace SyntheseOpdracht2.MVC.Controllers
     public class BoekController : Controller
     {
         //TO DO Unity
-        private readonly BoekenDatabase _boekenDatabase = new BoekenDatabase();
+        //private readonly BoekenDatabase _boekenDatabase;
 
-        private readonly GenreLogica _genreLogica;
-        private readonly BoekLogica _boekLogica;
+        private readonly IGenreLogica _genreLogica;
+        private readonly IBoekLogica _boekLogica;
 
-        public BoekController()
+        public BoekController(IGenreLogica genreLogica, IBoekLogica boekLogica)
         {
-            _genreLogica = new GenreLogica(_boekenDatabase);
-            _boekLogica = new BoekLogica(_boekenDatabase);
+            _genreLogica = genreLogica;
+            _boekLogica = boekLogica;
         }
 
         public async Task<ActionResult> Index()

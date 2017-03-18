@@ -8,7 +8,10 @@ namespace Syntheseopdracht2.BL
     public interface IGenreLogica
     {
         Task<List<Genre>> NeemAlleGenres();
+        Task<Genre> GeefGenre(int id);
 
-        //Task<List<Genre>> NeemGeselecteerdeGenres();
+        Task GenreOpslaan(Genre genre);
+        Task GenreWijzigen(Genre genre);
+        Task GenreVerwijderen(int code);
     }
 }

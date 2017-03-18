@@ -11,8 +11,12 @@ namespace SyntheseOpdracht2.MVC.Controllers
     public class GenreController : Controller
     {
         //TO DO Unity
-        private readonly GenreLogica _genreLogica = new GenreLogica(new BoekenDatabase());
+        private readonly IGenreLogica _genreLogica;
 
+        public GenreController(IGenreLogica genreLogica)
+        {
+            _genreLogica = genreLogica;
+        }
 
         public async Task<ActionResult> Index()
         {
