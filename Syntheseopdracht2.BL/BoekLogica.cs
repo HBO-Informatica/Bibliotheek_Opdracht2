@@ -24,14 +24,14 @@ namespace Syntheseopdracht2.BL
         }
 
         public Task BewaarBoek(Int32 code)
-                    {
+        {
 
             var huidigBoek = _database.Boeken.SingleOrDefault(x => x.Id == code);
 
             if (huidigBoek != null)
             {
                 _database.Boeken.Add(huidigBoek);
-                
+
             }
             return _database.SaveChangesAsync();
         }
@@ -43,18 +43,17 @@ namespace Syntheseopdracht2.BL
         }
 
 
-        public async Task<int> WijzigBoek(Boek boek, List<int> genreIds = null)
+        public async Task<int> WijzigBoek(Boek boek, List<int> genreIds)
         {
             var huidigBoek = _database.Boeken.SingleOrDefault(x => x.Id == boek.Id);
 
-
-
             if (huidigBoek != null)
             {
-               
-                var geselecteerdeGenres = _database.Genres.Where(x => genreIds.Contains(x.Id));
+                var geselecteerdeGenres = genreIds == null
+                    ? new List<Genre>()
+                    : _database.Genres.Where(x => genreIds.Contains(x.Id)).ToList();
 
-                huidigBoek.Genres = geselecteerdeGenres.ToList();
+                huidigBoek.Genres = geselecteerdeGenres;
                 huidigBoek.Auteur = boek.Auteur;
                 huidigBoek.Titel = boek.Titel;
                 huidigBoek.AantalPaginas = boek.AantalPaginas;
@@ -75,7 +74,7 @@ namespace Syntheseopdracht2.BL
             return _database.SaveChangesAsync();
         }
 
-       
+
         public Task<Boek> NeemBoek(Int32 code)
         {
             return _database.Boeken.SingleOrDefaultAsync(x => x.Id == code);

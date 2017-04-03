@@ -18,7 +18,6 @@
             <th>Aantal pagina's</th>
             <th>Genres</th>
             <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -33,13 +32,15 @@
 
                 <td>
                     @Html.ActionLink(" ", "Verwijderen", "Boek", new { code = boek.Id }, new { @class = "glyphicon glyphicon-trash" })
-                  
-            &nbsp;
-                    @Html.ActionLink(" ", "Bewerken", "Boek", new { code = boek.Id
-                    }, new { @class = "glyphicon glyphicon-pencil" })
+
+                    &nbsp;
+                    @Html.ActionLink(" ", "Bewerken", "Boek", new
+               {
+                   code = boek.Id
+               }, new { @class = "glyphicon glyphicon-pencil" })
                 </td>
             </tr>
-    }
+        }
     </tbody>
 </table>
 

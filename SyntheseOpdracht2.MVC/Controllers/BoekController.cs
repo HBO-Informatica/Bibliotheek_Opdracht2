@@ -12,9 +12,6 @@ namespace SyntheseOpdracht2.MVC.Controllers
 {
     public class BoekController : Controller
     {
-        //TO DO Unity
-        //private readonly BoekenDatabase _boekenDatabase;
-
         private readonly IGenreLogica _genreLogica;
         private readonly IBoekLogica _boekLogica;
 
@@ -52,11 +49,14 @@ namespace SyntheseOpdracht2.MVC.Controllers
                 Genres = new List<Genre>()
             };
 
-            foreach (var genreId in vm.GenreIds)
+            if (vm.GenreIds != null)
             {
-                nieuwBoek.Genres.Add(await _genreLogica.GeefGenre(genreId));
+                foreach (var genreId in vm.GenreIds)
+                {
+                    nieuwBoek.Genres.Add(await _genreLogica.GeefGenre(genreId));
+                }
             }
-
+            
             await _boekLogica.BewaarBoek(nieuwBoek);
 
             return RedirectToAction("Index");
